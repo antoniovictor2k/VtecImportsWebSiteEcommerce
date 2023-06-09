@@ -4,12 +4,23 @@ class Produto {
         this.preco = preco;
         this.desconto = desconto;
         this.descricao = descricao;
+        this.precoDesconto = preco - desconto;
     }
 }
 
 const produtos = [
     new Produto('Produto 1', 10.00, 0, 'Descrição do Produto 1'),
-    new Produto('Produto 2', 20.00, 5, 'Descrição do Produto 2'),
+    new Produto('TV Box 256gb', 220.00, 30, `Apresentamos o incrível TV Box - sua porta de entrada para um mundo de entretenimento sem fim! Nosso TV Box é um dispositivo elegante e poderoso que revolucionará a forma como você desfruta de seus programas de TV, filmes e muito mais.
+
+    Com nosso TV Box, você pode transformar qualquer televisão comum em uma Smart TV de última geração, oferecendo um novo nível de conveniência e emoção. Ele se conecta à sua TV por meio de HDMI e desbloqueia instantaneamente um mundo de possibilidades de streaming.
+    
+    Diga adeus aos canais limitados a cabo e dê as boas-vindas a uma infinidade de opções de streaming. Nosso TV Box oferece acesso a plataformas populares de streaming como Netflix, Amazon Prime Video, Hulu e muitas outras. Aproveite uma vasta biblioteca de filmes, séries de TV, documentários e conteúdo exclusivo ao alcance dos seus dedos.
+    
+    Mas não para por aí. Nosso TV Box também permite explorar uma ampla variedade de aplicativos, jogos e conteúdo multimídia disponíveis na Google Play Store. Quer você queira assistir aos últimos vídeos virais, navegar nas redes sociais ou jogar seus jogos mobile favoritos na tela grande, nosso TV Box tem tudo que você precisa.
+    
+    O TV Box está equipado com um hardware poderoso e um sistema operacional intuitivo que torna a navegação e a reprodução de conteúdo rápida e simples. Além disso, possui recursos de conectividade avançados, como Wi-Fi integrado e várias portas USB, para que você possa conectar periféricos, como teclados, mouses ou dispositivos de armazenamento externo.
+    
+    Não espere mais para elevar sua experiência de entretenimento a um novo patamar. Adquira agora mesmo nosso TV Box e desfrute de uma ampla variedade de conteúdos e funcionalidades que irão transformar sua sala de estar em um verdadeiro centro de entretenimento.`),
     new Produto('Produto 3', 30.00, 0, 'Descrição do Produto 3'),
     // Adicione mais produtos aqui...
     new Produto('Produto 16', 160.00, 0, 'Descrição do Produto 16'),
@@ -97,21 +108,21 @@ function mostrarDetalhesProduto(event) {
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner-Detalhe">
                 <div class="carousel-item active">
-                    <img src="img/carousel-1.jpg" class="d-block w-100 carousel-img" alt="Imagem 1">
+                    <img src="img/carousel-1.jpg" class="d-block w-100" alt="Imagem 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel-2.jpg" class="d-block w-100 carousel-img" alt="Imagem 2">
+                    <img src="img/carousel-2.jpg" class="d-block w-100 " alt="Imagem 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel-3.jpg" class="d-block w-100 carousel-img" alt="Imagem 3">
+                    <img src="img/carousel-3.jpg" class="d-block w-100 " alt="Imagem 3">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel-3.jpg" class="d-block w-100 carousel-img" alt="Imagem 3">
+                    <img src="img/carousel-3.jpg" class="d-block w-100 " alt="Imagem 3">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel-3.jpg" class="d-block w-100 carousel-img" alt="Imagem 3">
+                    <img src="img/carousel-3.jpg" class="d-block w-100 " alt="Imagem 3">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -124,10 +135,23 @@ function mostrarDetalhesProduto(event) {
             </a>
         </div>
 
+<div class='pt-4 pb-2'>
+<h3 >${produto.nome}</h3>
+</div>
+<div class='flex-row'>
+<h5>${formatarMoeda(produto.precoDesconto)}
 
-        <h3>${produto.nome}</h3>
+<span class="text-muted ml-2"><del>${formatarMoeda(produto.desconto)}</del></span>
+</h5> 
+
+</div>
+        <div class='pl-5 pr-5'>
         <p>${produto.descricao}</p>
+        </div>
+        <div class='pb-4'>
+        <button type="button" class="btn btn-secondary m-2">Compre Agora</button>
         <button type="button" class="btn btn-secondary m-2 voltar-btn">Voltar</button>
+        </div>
     `;
 
     // Esconder a lista de produtos
